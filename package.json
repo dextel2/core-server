@@ -1,0 +1,35 @@
+{
+	"name": "core-server",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "nodemon src/app.js"
+	},
+	"keywords": [],
+	"author": "Yash Karanke",
+	"license": "MIT",
+	"dependencies": {
+		"body-parser": "^1.19.0",
+		"cors": "^2.8.5",
+		"dotenv": "^10.0.0",
+		"express": "^4.17.1",
+		"express-graphql": "^0.12.0",
+		"fs": "0.0.1-security",
+		"graphql": "^15.5.1",
+		"graphql-tools": "^8.1.0",
+		"http": "0.0.1-security",
+		"https": "^1.0.0",
+		"mongodb": "^4.1.1",
+		"mongoose": "^6.0.2",
+		"os": "^0.1.2"
+	},
+	"devDependencies": {
+		"babel-cli": "^6.26.0",
+		"babel-preset-env": "^1.7.0",
+		"babel-preset-es2015": "^6.24.1",
+		"babel-preset-stage-2": "^6.24.1",
+		"babel-register": "^6.26.0",
+		"nodemon": "^2.0.12"
+	}
+}

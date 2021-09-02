@@ -1,23 +1,17 @@
-/**
- * IMPORTS
- */
+const path = require("path");
+
 const express = require("express");
 const bodyParser = require("body-parser");
-const path = require("path");
-/**
- * ROUTES
- */
-const adminRoutes = require("./routes/admins");
+
+const app = express();
+
+const adminData = require("./routes/admins");
 const shopRoutes = require("./routes/shop");
 
-/**
- * CONSTANTS
- */
-const app = express();
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/admin", adminRoutes);
+app.use("/admin", adminData.routes);
 app.use(shopRoutes);
 
 app.use((req, res, next) => {

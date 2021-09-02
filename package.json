@@ -13,8 +13,10 @@
 		"body-parser": "^1.19.0",
 		"cors": "^2.8.5",
 		"dotenv": "^10.0.0",
+		"ejs": "^3.1.6",
 		"express": "^4.17.1",
 		"express-graphql": "^0.12.0",
+		"express-handlebars": "^5.3.3",
 		"fs": "0.0.1-security",
 		"graphql": "^15.5.1",
 		"graphql-tools": "^8.1.0",
@@ -22,7 +24,8 @@
 		"https": "^1.0.0",
 		"mongodb": "^4.1.1",
 		"mongoose": "^6.0.2",
-		"os": "^0.1.2"
+		"os": "^0.1.2",
+		"pug": "^3.0.2"
 	},
 	"devDependencies": {
 		"babel-cli": "^6.26.0",

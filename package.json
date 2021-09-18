@@ -6,6 +6,9 @@
 	"scripts": {
 		"start": "nodemon server.js"
 	},
+	"engines": {
+		"node": "^7.10.0"
+	},
 	"keywords": [],
 	"author": "Yash Karanke",
 	"license": "MIT",

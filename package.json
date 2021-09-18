@@ -6,6 +6,10 @@
 	"scripts": {
 		"start": "nodemon src/app.js"
 	},
+	"engines": {
+		"node": ">=0.12"
+	},
+	"engineStrict": true,
 	"keywords": [],
 	"author": "Yash Karanke",
 	"license": "MIT",

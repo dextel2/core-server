@@ -20,7 +20,7 @@ app.use("/admin", adminRoutes);
 app.use(shopRoutes);
 
 app.use(errorController.get404);
-const port = process.env.port || 8080;
+const port = process.env.port || 3000;
 app.listen(port, () => {
   console.log(`server is running on ${port}`);
 });

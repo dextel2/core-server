@@ -2,13 +2,10 @@
 	"name": "core-server",
 	"version": "1.0.0",
 	"description": "",
-	"main": "index.js",
+	"main": "server.js",
 	"scripts": {
-		"start": "nodemon server.js"
-	},
-	"engines": {
-		"node": "^14.15.0"
-	},
+		"start": "node server.js"
+	}
 	"keywords": [],
 	"author": "Yash Karanke",
 	"license": "MIT",

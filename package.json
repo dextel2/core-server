@@ -5,7 +5,7 @@
 	"main": "server.js",
 	"scripts": {
 		"start": "node server.js"
-	}
+	},
 	"keywords": [],
 	"author": "Yash Karanke",
 	"license": "MIT",

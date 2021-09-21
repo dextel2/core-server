@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/admin", adminRoutes);
 app.use(shopRoutes);
 
-app.post("/images", uploads.single("thumbnail"), async (req, res) => {
+app.post("/api/v1/images", uploads.single("thumbnail"), async (req, res) => {
   console.log("file", req.file);
   console.log("body", req.body);
   fs.access("./data/uploads/", (err) => {

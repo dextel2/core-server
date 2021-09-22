@@ -39,7 +39,7 @@ app.post("/api/v1/images", uploads.single("thumbnail"), async (req, res) => {
 });
 
 app.use(errorController.get404);
-const port = process.env.port || 3000;
+const port = process.env.port || 5000;
 
 app.listen(port, () => {
   console.log(`server is running on ${port}`);

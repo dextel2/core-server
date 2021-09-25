@@ -1,5 +1,7 @@
 const path = require("path");
-const db = require("./utils/database");
+const sequelize = require("./utils/database");
+const Product = require("./models/product");
+const User = require("./models/user");
 const express = require("express");
 const bodyParser = require("body-parser");
 
@@ -39,7 +41,15 @@ app.post("/api/v1/images", uploads.single("thumbnail"), async (req, res) => {
 });
 
 app.use(errorController.get404);
-const port = process.env.port || 5000;
+const port = process.env.PORT || 5000;
+
+Product.belongsTo(User, { constraints: true, onDelete: "CASCADE" });
+User.hasMany(Product);
+
+sequelize
+  .sync()
+  .then((res) => {})
+  .catch((err) => console.error(err));
 
 app.listen(port, () => {
   console.log(`server is running on ${port}`);

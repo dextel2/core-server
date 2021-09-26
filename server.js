@@ -55,7 +55,7 @@ const port = process.env.PORT || 5000;
 
 Product.belongsTo(User, { constraints: true, onDelete: "CASCADE" });
 User.hasMany(Product);
-User.hasMany(Cart);
+User.hasOne(Cart);
 Cart.belongsTo(User);
 Cart.belongsToMany(Product, { through: CartItem });
 Product.belongsToMany(Cart, { through: CartItem });
@@ -75,7 +75,7 @@ sequelize
     return user;
   })
   .then((user) => {
-    console.log(user);
+    return user.createCart();
   })
   .catch((err) => console.error(err));
 

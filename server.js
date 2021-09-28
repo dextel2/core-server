@@ -1,11 +1,6 @@
 const path = require("path");
-const sequelize = require("./utils/database");
-const Product = require("./models/product");
-const User = require("./models/user");
-const Cart = require("./models/cart");
-const CartItem = require("./models/cartItem");
-const Order = require("./models/order");
-const OrderItem = require("./models/orderItems");
+// const User = require("./models/user");
+const mongoConnect = require("./utils/database").mongoConnect;
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -28,12 +23,13 @@ const shopRoutes = require("./routes/shop");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use((req, res, next) => {
-  User.findByPk(1)
-    .then((user) => {
-      req.user = user;
-      next();
-    })
-    .catch((err) => console.error(err));
+  //   User.findByPk(1)
+  //     .then((user) => {
+  //       req.user = user;
+  //       next();
+  //     })
+  //     .catch((err) => console.error(err));
+  next();
 });
 
 app.use("/admin", adminRoutes);
@@ -56,35 +52,8 @@ app.post("/api/v1/images", uploads.single("thumbnail"), async (req, res) => {
 app.use(errorController.get404);
 const port = process.env.PORT || 5000;
 
-Product.belongsTo(User, { constraints: true, onDelete: "CASCADE" });
-User.hasMany(Product);
-User.hasOne(Cart);
-Cart.belongsTo(User);
-Cart.belongsToMany(Product, { through: CartItem });
-Product.belongsToMany(Cart, { through: CartItem });
-Order.belongsTo(User);
-User.hasMany(Order);
-Order.belongsToMany(Product, { through: OrderItem });
-
-sequelize
-  .sync()
-  .then((res) => {
-    return User.findByPk(1);
-  })
-  .then((user) => {
-    if (!user) {
-      return User.create({
-        name: "Max",
-        email: "user@gmail.com",
-      });
-    }
-    return user;
-  })
-  .then((user) => {
-    return user.createCart();
-  })
-  .catch((err) => console.error(err));
-
-app.listen(port, () => {
-  console.log(`server is running on ${port}`);
+mongoConnect(() => {
+  app.listen(port, () => {
+    console.log(`server is running on ${port}`);
+  });
 });

@@ -40,5 +40,13 @@
 		"babel-preset-stage-2": "^6.24.1",
 		"babel-register": "^6.26.0",
 		"nodemon": "^2.0.12"
+	},
+	"prettier": {
+		"trailingComma": "es5",
+		"tabWidth": 4,
+		"semi": true,
+		"singleQuote": false,
+		"useTabs": true,
+		"printWidth": 120
 	}
 }

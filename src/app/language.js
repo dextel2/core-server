@@ -14,9 +14,9 @@ i18next
 			order: ["querystring", "cookie"],
 			caches: ["cookie"],
 		},
-
 		preload: ["en", "fr"],
 		saveMissing: true,
+		fallBackLng: ["en"],
 	});
 
 module.exports = i18nextMiddleware.handle(i18next);

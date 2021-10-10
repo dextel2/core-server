@@ -1,22 +1,21 @@
-const path = require("path");
-const mongoConnect = require("./src/utils/database").mongoConnect;
-const port = process.env.PORT || 5000;
-const express = require("express");
-const bodyParser = require("body-parser");
-const User = require("./src/models/user");
-const errorController = require("./src/controllers/error");
-const multer = require("multer");
+import bodyParser from "body-parser";
+import express from "express";
+import fs from "fs";
+import multer from "multer";
+import path from "path";
+import sharp from "sharp";
+import { get404 } from "./src/controllers/error";
+import User from "./src/models/user";
+import adminRoutes from "./src/routes/admin";
+import shopRoutes from "./src/routes/shop";
+import { mongoConnect } from "./src/utils/database";
 const storage = multer.memoryStorage();
 const uploads = multer({ storage });
-const sharp = require("sharp");
-const fs = require("fs");
+const port = process.env.PORT || 5000;
 const app = express();
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/src/views"));
-
-const adminRoutes = require("./src/routes/admin");
-const shopRoutes = require("./src/routes/shop");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "/src/public")));
@@ -46,7 +45,7 @@ app.post("/api/v1/images", uploads.single("thumbnail"), async (req, res) => {
 	res.send("success");
 });
 
-app.use(errorController.get404);
+app.use(get404);
 
 mongoConnect(() => {
 	app.listen(port, () => {

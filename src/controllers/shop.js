@@ -1,6 +1,6 @@
-const Product = require("../models/product");
+import Product from "../models/product";
 
-exports.getProducts = (req, res, next) => {
+export const getProducts = (req, res, next) => {
 	Product.fetchAll()
 		.then((products) => {
 			res.render("shop/product-list", {
@@ -14,7 +14,7 @@ exports.getProducts = (req, res, next) => {
 		});
 };
 
-exports.getProduct = (req, res, next) => {
+export const getProduct = (req, res, next) => {
 	const prodId = req.params.productId;
 	Product.findById(prodId)
 		.then((product) => {
@@ -27,7 +27,7 @@ exports.getProduct = (req, res, next) => {
 		.catch((err) => console.log(err));
 };
 
-exports.getIndex = (req, res, next) => {
+export const getIndex = (req, res, next) => {
 	Product.fetchAll()
 		.then((products) => {
 			res.render("shop/index", {
@@ -41,7 +41,7 @@ exports.getIndex = (req, res, next) => {
 		});
 };
 
-exports.getCart = (req, res, next) => {
+export const getCart = (req, res, next) => {
 	req.user
 		.getCart()
 		.then((products) => {
@@ -54,7 +54,7 @@ exports.getCart = (req, res, next) => {
 		.catch((err) => console.log(err));
 };
 
-exports.postCart = (req, res, next) => {
+export const postCart = (req, res, next) => {
 	const prodId = req.body.productId;
 	console.log(req.user);
 	Product.findById(prodId)
@@ -66,7 +66,7 @@ exports.postCart = (req, res, next) => {
 		});
 };
 
-exports.postCartDeleteProduct = (req, res, next) => {
+export const postCartDeleteProduct = (req, res, next) => {
 	const prodId = req.body.productId;
 	req.user
 		.getCart()
@@ -83,7 +83,7 @@ exports.postCartDeleteProduct = (req, res, next) => {
 		.catch((err) => console.log(err));
 };
 
-exports.postOrder = (req, res, next) => {
+export const postOrder = (req, res, next) => {
 	let fetchedCart;
 	req.user
 		.getCart()
@@ -113,7 +113,7 @@ exports.postOrder = (req, res, next) => {
 		.catch((err) => console.log(err));
 };
 
-exports.getOrders = (req, res, next) => {
+export const getOrders = (req, res, next) => {
 	req.user
 		.getOrders({ include: ["products"] })
 		.then((orders) => {

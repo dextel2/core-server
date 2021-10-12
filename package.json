@@ -8,7 +8,8 @@
 		"start": "node server.js",
 		"dev": "nodemon --exec babel-node server.js -e js,ejs,mjs,json",
 		"copy": "cp package.json dist/ && cp README.md dist/ && cp .npmrc dist/ && cp .env.prod dist/ && cp server.js dist/ && cp .babelrc dist/",
-		"build": "cp -r ./src/. ./dist && npm run copy"
+		"build:dev": "cp -r ./src/. ./dist && npm run copy",
+		"build":"echo \"Unix timestamp: `date +%s`\""
 	},
 	"keywords": [],
 	"author": "Yash Karanke",

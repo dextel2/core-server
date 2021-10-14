@@ -1,4 +1,11 @@
-## Pull Request Template
+---
+name: PR
+about: Pull Request
+title: ''
+labels: ''
+assignees: dextel2
+
+---
 
 ### What have you Changed(must)
 

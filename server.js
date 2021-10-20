@@ -34,14 +34,14 @@ app.use(shopRoutes);
 app.post("/api/v1/images", uploads.single("thumbnail"), async (req, res) => {
 	console.log("file", req.file);
 	console.log("body", req.body);
-	fs.access("./data/uploads/", (err) => {
+	fs.access("./src/data/uploads/", (err) => {
 		if (err) {
 			fs.mkdirSync("./data/uploads");
 		}
 	});
 	await sharp(req.file.buffer)
 		.resize({ width: 650, height: 350 })
-		.toFile("./data/uploads/" + req.file.originalname);
+		.toFile("./src/data/uploads/" + req.file.originalname);
 	res.send("success");
 });
 

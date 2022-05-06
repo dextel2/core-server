@@ -22,7 +22,6 @@
 		"fs": "0.0.1-security",
 		"graphql": "^15.5.1",
 		"graphql-tools": "^8.1.0",
-		"http": "0.0.1-security",
 		"https": "^1.0.0",
 		"mongodb": "^4.1.1",
 		"mongoose": "^6.0.2",

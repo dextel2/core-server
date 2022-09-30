@@ -85,6 +85,4 @@ sequelize
   })
   .catch((err) => console.error(err));
 
-app.listen(port, () => {
-  console.log(`server is running on ${port}`);
-});
+app.listen(port, () => console.log(`server is running on ${port}`));

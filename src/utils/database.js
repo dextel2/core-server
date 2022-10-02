@@ -9,11 +9,9 @@ const mongoConnect = (callback) => {
 	)
 		.then((client) => {
 			_db = client.db("");
-			console.log("Connected");
 			callback();
 		})
 		.catch((err) => {
-			console.error(err);
 			throw new Error("An Error Occured");
 		});
 };

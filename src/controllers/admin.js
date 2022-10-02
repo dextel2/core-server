@@ -23,7 +23,7 @@ export const postAddProduct = (req, res, next) => {
 			res.redirect("/admin/products");
 		})
 		.catch((err) => {
-			console.log(err);
+			throw Error(err);
 		});
 };
 
@@ -46,7 +46,7 @@ export const getEditProduct = (req, res, next) => {
 				product: product,
 			});
 		})
-		.catch((err) => console.log(err));
+		.catch((err) => {throw Error(err)});
 };
 
 export const postEditProduct = (req, res, next) => {
@@ -63,7 +63,7 @@ export const postEditProduct = (req, res, next) => {
 			console.log("UPDATED PRODUCT!");
 			res.redirect("/admin/products");
 		})
-		.catch((err) => console.log(err));
+		.catch((err) => {throw Error(err)});
 };
 
 export const getProducts = (req, res, next) => {
@@ -75,7 +75,7 @@ export const getProducts = (req, res, next) => {
 				path: "/admin/products",
 			});
 		})
-		.catch((err) => console.log(err));
+		.catch((err) => {throw Error(err)});
 };
 
 export const postDeleteProduct = (req, res, next) => {

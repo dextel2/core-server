@@ -1,0 +1,7 @@
+contact_links:
+    - name: ⚛️ Feature Request or Proposal
+      about: To submit a feature request or a proposal, follow the RFC process and send a pull request. Do NOT create issues for proposals.
+      url: https://github.com/dextel2/core-server/issues/new
+    - name: 📃 Documentation Issue
+      about: This issue tracker is not for documentation issues. Please file documentation issues here.
+      url: https://github.com/dextel2/core-server/issues/new

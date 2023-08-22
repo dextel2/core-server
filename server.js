@@ -4,7 +4,8 @@ import fs from "fs";
 import multer from "multer";
 import path from "path";
 import sharp from "sharp";
-import { get404 } from "./src/controllers/error";
+import { 
+} from "./src/controllers/error";
 import User from "./src/models/user";
 import adminRoutes from "./src/routes/admin";
 import shopRoutes from "./src/routes/shop";

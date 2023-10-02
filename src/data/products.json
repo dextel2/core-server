@@ -5,5 +5,12 @@
 		"imageUrl": "https://www.publicdomainpictures.net/pictures/10000/velka/1-1210009435EGmE.jpg",
 		"description": "This is an awesome book!",
 		"price": "19"
+	},
+	{
+		"id": "1337",
+		"title": "An Awesome Book",
+		"imageUrl": "https://www.publicdomainpictures.net/pictures/10000/velka/1-1210009435EGmE.jpg",
+		"description": "This is an awesome book!",
+		"price": "20"
 	}
 ]

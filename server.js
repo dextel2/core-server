@@ -54,7 +54,7 @@ app.post("/api/v1/images", uploads.single("thumbnail"), async (req, res) => {
 });
 
 app.use(errorController.get404);
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 1337;
 
 Product.belongsTo(User, { constraints: true, onDelete: "CASCADE" });
 User.hasMany(Product);

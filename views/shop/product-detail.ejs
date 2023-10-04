@@ -1,16 +1,25 @@
 <%- include('../includes/head.ejs') %>
-    </head>
+	</head>
 
-    <body>
-        <%- include('../includes/navigation.ejs') %>
+	<body>
+		<%- include('../includes/navigation.ejs') %>
 			<main class="centered">
-				<h1><%= product.title %></h1>
-				<hr>
-				<div>
-					<img src="<%= product.imageUrl %>" alt="<%= product.title %>" />
-				</div>
-				<h2>$<%= product.price %></h2>
-				<p><%= product.description %></p>
-				<%- include("../includes/add-to-cart.ejs") %>
+				<% if (product) { %>
+					<h1>
+						<%= product.title %>
+					</h1>
+					<hr>
+					<div>
+						<img src="<%= product.imageUrl %>" alt="<%= product.title %>" />
+					</div>
+					<h2>$<%= product.price %>
+					</h2>
+					<p>
+						<%= product.description %>
+					</p>
+					<%- include("../includes/add-to-cart.ejs") %>
+						<% } else { %>
+							<h1>No Product Found!</h1>
+							<% } %>
 			</main>
-		<%- include('../includes/end.ejs') %>
+			<%- include('../includes/end.ejs') %>
